@@ -1,0 +1,149 @@
+public class arraystack{
+
+	private int capacity;
+	private int top = 0;
+	private String[] storage;
+
+
+	public arraystack(int size)
+	{
+		// assign the value of size to capacity
+		capacity = size;
+		storage = new String[capacity];
+	} 
+
+	public void show()
+	{
+		// the top of the stack starts from array[0] then newer item gets added on top of another until it reaches its capacity limit
+		for (int j = capacity-1; j >= 0; j--) { 
+			for (int i = capacity-1; i >= 0; i--) 
+			{
+				System.out.println("stack[" + j-- + "]= "+ storage[i]);
+			}
+		}
+		System.out.println();
+	}
+
+	private boolean isEmpty() 
+	{
+		if (storage[0] == null) 
+			{
+			  // print error message
+			   System.out.println("storage is empty");
+			  System.out.println();
+			  return true;
+		    } 
+		return false;
+	}
+
+	private boolean isFull() 
+	{
+		if (top == capacity)
+		{
+			System.out.println("storage is FULL");
+            System.out.println();
+			return true;
+		} 
+		return false;
+	}
+
+	public void push(String value) 
+	{
+		if (isFull())
+		{
+			// print error message
+			System.out.println("ADD FAILED");
+		} 
+		else 
+		{
+			System.out.println( "pushing [" + top + "] ...");
+			storage[top] = value;
+			top ++;
+			System.out.println(value + " was successfully added.");
+			System.out.println();
+		}
+	}
+
+	public void pop()
+	{
+		if (isEmpty()) 
+		{
+			// print error message
+			System.out.println("REMOVE FAILED.");
+		} 
+		else 
+		{
+			System.out.println("... trying to pop stack[" + (top-1) + "] ...");
+			storage[top] = null;
+			top--;
+			System.out.println(storage[top] + " was successfully removed.");
+			System.out.println();
+		}
+	}
+
+	public void peek() 
+	{
+		if (storage[top] == storage[0]) 
+		{
+			System.out.println("PEEK TOP = " + storage[top]);
+			System.out.println();
+		}
+		else
+		{
+			System.out.println("PEEK TOP = " + storage[top-1]);
+			System.out.println();
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		// construct a new array queue and assign 10 as the integer value for the size limit of the stack
+	      arraystack storage = new arraystack(10);
+		System.out.println("STORAGE CAPACITY = " + storage.capacity);
+		System.out.println();
+		storage.peek();
+		storage.pop();
+		// show empty stack
+		// try removing on an empty stack
+		// peek top element of an empty stack
+		storage.push("one");
+		storage.show();
+		storage.peek();
+		// show the updated stack
+		// peek if top element is "one"
+		storage.push("two");
+		storage.show();
+		storage.peek();
+		// show the updated stack
+		// peek if top element is "two"
+		storage.push("three");
+		storage.show();
+		storage.peek();
+		// show the updated stack
+		// peek if top element is "three"
+		storage.push("four");
+		storage.show();
+		// show the updated stack
+		storage.push("five"); 
+		storage.pop();
+		storage.show();
+		// show the updated stack
+		// try removing "five"
+		storage.push("six"); 
+		storage.push("seven"); 
+		storage.push("eight"); 
+		storage.push("nine");    
+		storage.push("ten"); 
+		
+		storage.show();
+		storage.peek();
+		storage.push("eleven");
+		storage.push("twelve");
+		storage.show();
+		// show the updated stack
+		// peek if top element is "ten"
+		// try adding "eleven"
+		// try adding "twelve"
+		// show the updated stack
+	}  
+}
