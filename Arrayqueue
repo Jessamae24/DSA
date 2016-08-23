@@ -1,0 +1,75 @@
+package array;
+
+public class Array
+{
+    private static final int capacity = 3;
+    int arr [] = new int [capacity];
+    int size = 0;
+    int top=-1;
+    int rear=0;
+    
+    public void push (int pushElement)
+    {
+        if (top < capacity-1)
+        {
+            top++;
+            arr[top] =pushElement;
+            System.out.println("ELement " + pushElement + " ispushed " );
+            
+        }
+        else
+        {
+            System.out.println(" Overflow ! ");
+        }
+    }
+    
+    public void pop()
+    {
+        if(top >= rear)
+        {
+          rear++;
+          System.out.println(" Done Poping ! ");
+          
+        }
+        else
+        {
+          System.out.println(" Underflow ");   
+        }
+    }
+    
+    
+    public void display ()
+    {
+         if(top>=rear)
+         {
+             System.out.println(" Element in queue ");
+             for (int i =rear; i<=top;i++)
+             {
+                 System.out.println(" Queue ["+i+"] = " +arr[i]);
+             }
+         } 
+    }
+    
+
+    
+    public static void main(String[] args)
+    {
+        Array array = new Array();
+        array.display();
+        array.pop();
+        array.push(23);
+        array.display();
+        array.push(2);
+        array.display();
+        array.push(45);
+        array.display();
+        array.push(11);
+        array.display();
+        array.pop();
+        array.pop();
+        array.pop();
+        
+        array.display();
+    }
+    
+}
