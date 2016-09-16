@@ -35,8 +35,20 @@ public class Arrayinput
 				total = total + arr[j];//getting the summ of all element
 			} 
 			System.out.println("total = " +total);//print the sum of all array ... 
+                      
+		   	
+		}
+                    for (int c=0; c<arr.length;c++)
+			{
+				if (arr[c] > maxnum)
+					maxnum=arr[c];
+			}
+
+			System.out.println("Max number is = "+ maxnum);
 			
 		}
+
+	
 
 		
          if(userschoise==2)
