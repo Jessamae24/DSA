@@ -77,7 +77,7 @@ public class Total_Ave_and_small_large
 	{
 		Total_Ave_and_small_large lol = new Total_Ave_and_small_large (); 
 		
-		 Total_Ave_and_small_large.choise();
+		 lol.choise();
 		int userschoise=s.nextInt();
 		
 		if (userschoise==1)
